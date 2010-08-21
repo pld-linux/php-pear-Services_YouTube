@@ -1,13 +1,11 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		Services
-%define		_subclass	YouTube
 %define		_status		alpha
 %define		_pearname	Services_YouTube
 Summary:	%{_pearname} - PHP Client for YouTube API
 Summary(pl.UTF-8):	%{_pearname} - klient PHP do API YouTube
 Name:		php-pear-%{_pearname}
 Version:	0.2.2
-Release:	1
+Release:	2
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -15,9 +13,16 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 URL:		http://pear.php.net/package/Services_YouTube/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+Requires:	php-curl
 Requires:	php-pear
+Requires:	php-simplexml
+Suggests:	php-pear-Cache_Lite
+Suggests:	php-pear-XML_RPC2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# exclude optional dependencies
+%define		_noautoreq	pear(Cache/Lite.*) pear(XML/RPC2.*)
 
 %description
 PHP Client for YouTube API.
@@ -33,9 +38,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
