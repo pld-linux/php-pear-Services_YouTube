@@ -1,11 +1,11 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		alpha
 %define		_pearname	Services_YouTube
+%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - PHP Client for YouTube API
 Summary(pl.UTF-8):	%{_pearname} - klient PHP do API YouTube
 Name:		php-pear-%{_pearname}
 Version:	0.2.2
-Release:	3
+Release:	4
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -14,9 +14,9 @@ URL:		http://pear.php.net/package/Services_YouTube/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	php-curl
+Requires:	php(curl)
+Requires:	php(simplexml)
 Requires:	php-pear
-Requires:	php-simplexml
 Suggests:	php-pear-Cache_Lite
 Suggests:	php-pear-XML_RPC2
 Obsoletes:	php-pear-Services_YouTube-tests
