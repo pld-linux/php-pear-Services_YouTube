@@ -1,6 +1,5 @@
 %define		_status		alpha
 %define		_pearname	Services_YouTube
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - PHP Client for YouTube API
 Summary(pl.UTF-8):	%{_pearname} - klient PHP do API YouTube
 Name:		php-pear-%{_pearname}
